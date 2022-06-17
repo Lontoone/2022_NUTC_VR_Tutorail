@@ -184,7 +184,7 @@ MonoBehaviour:
   sensorPoint: {fileID: 6238422595003416704}
   rayDistance: 3
   checkLength: 10
-  checkradius: 0.05
+  checkradius: 0.08
 --- !u!1 &2436678073471138390
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System;
 public class StickSenserToSkin : MonoBehaviour
 {
     public LayerMask skinMeshLayer;
@@ -23,6 +23,8 @@ public class StickSenserToSkin : MonoBehaviour
     private InputAction trigger;
     public float checkLength = 10;
     public float checkradius = 0.5f;
+
+    public static event Action<string> OnTrigger;
 
 
     private void Start()
@@ -61,13 +63,18 @@ public class StickSenserToSkin : MonoBehaviour
                 if (res[i].gameObject.name == "cyst")
                 {
                     Debug.Log("Cyst");
-                    ResultUIManager.instance.SetCorrect("觀察到肝臟腫囊");
+                    OnTrigger?.Invoke("Cyst");
+                    ResultUIManager.instance.SetCorrect("觀察到肝囊腫");
                 }
                 if (res[i].gameObject.name == "rock")
                 {
                     Debug.Log("rock");
-                    ResultUIManager.instance.SetCorrect("觀察到膽囊結石");
+                    OnTrigger?.Invoke("rock");
+                    ResultUIManager.instance.SetCorrect("觀察到膽結石");
                 }
+            }
+            else {
+                OnTrigger?.Invoke("");
             }
         }
     }
