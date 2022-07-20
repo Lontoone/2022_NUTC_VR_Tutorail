@@ -1,30 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LookThroughOrganController : MonoBehaviour
 {
-    private GameObject currentObj;
-    public GameObject liverEye, garEye;
-
-    public void SelectOrgan(GameObject _obj)
+    private LookThroughOrganControllerUI currentUI;
+    //public Image liverEye, garEye;
+    //public Color transparent;    
+    public LookThroughOrganControllerUI test;
+    [ContextMenu("test")]
+    private void Test()
     {
-        if (currentObj != null)
+        SelectOrgan(test);
+    }
+
+    public void SelectOrgan(LookThroughOrganControllerUI _obj)
+    {
+        if (currentUI != null)
         {
-            currentObj.SetActive(false);
+            currentUI.Close();
         }
-        if (_obj != null && currentObj != _obj)
-            _obj.SetActive(true);
-        currentObj = _obj;
-    }
+        if (_obj != null && currentUI != _obj)
+        {
+            _obj.Open();
+            currentUI = _obj;
+        }
+        else if (currentUI==_obj) {
+            currentUI = null;
+            _obj.Close();
+        }
 
-    public void CloseEyeImage() {
-        liverEye.SetActive(false);
-        garEye.SetActive(false);
     }
-
-    public void ClearAll()
-    {
-        currentObj.SetActive(false);
-    }
+    
 }
+
+public struct OpButtonsGroup {
+    public GameObject organ;
+    public Image eyeImage;
+}
+
+

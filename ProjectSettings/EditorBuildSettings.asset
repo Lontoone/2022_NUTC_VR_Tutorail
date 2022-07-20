@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Clinic.unity
     guid: 7d903737eb977a54c9dc0747e015b78e
+  - enabled: 0
+    path: Assets/Scenes/NUTC_Clinic_Demo.unity
+    guid: 445a2eeaed1030b49bc9da0f11f55666
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 042bc856271e3ce4cb7afed31c7ca8a8, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fe88fdaee701e7b4695386de3f287b4b, type: 2}

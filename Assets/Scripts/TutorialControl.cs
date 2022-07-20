@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TutorialControl : MonoBehaviour
 {
     public GameObject[] panels;
     private int page = 0;
+    private const int homePade = 1;
 
     public void MovePage(int opt)
     {
@@ -24,20 +26,20 @@ public class TutorialControl : MonoBehaviour
 
     public void MoveToPage(int pageIndex) {
         panels[page].SetActive(false);
-        page = pageIndex;
-        panels[pageIndex].SetActive(true);
+        page = homePade+ pageIndex;
+        panels[page].SetActive(true);
 
     }
 
 #if UNITY_EDITOR
-    /*
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Keyboard.current.spaceKey.wasReleasedThisFrame) {
             MovePage(1);
         }
     }
-    */
+    
     [ContextMenu("Move Page")]
     public void TestMovePage() {
         MovePage(1);
