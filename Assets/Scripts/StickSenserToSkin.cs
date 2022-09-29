@@ -75,6 +75,7 @@ public class StickSenserToSkin : MonoBehaviour
             }
             else {
                 OnTrigger?.Invoke("");
+                ResultUIManager.instance.SetWrong("µª¿ù¤F");
             }
         }
     }
